@@ -21,13 +21,46 @@ dependencies {
     testCompile group: 'io.github.prashant-ramcharan', name: 'courgette-jvm', version: '3.0.1'
 }
 
+//buildscript {
+//    repositories { jcenter() }
+//
+//    dependencies {
+//        classpath 'ru.alfalab.gradle:cucumber-parallel-test-gradle-plugin:0.1.0+'
+//    }
+//}
+//
+//apply plugin: 'ru.alfalab.cucumber-parallel-test'
+
 tasks.withType(Test) {
     systemProperties = System.getProperties()
     systemProperties.remove("java.endorsed.dirs")
 }
 
-task runTests(type: Test) {
+// -PmainClass=gradle.cuc.parallel.JustAClass execute
+task execute(type:JavaExec) {
+    main = "gradle.cuc.parallel.JustAClass"
+    classpath = sourceSets.main.runtimeClasspath
+
+    if(System.getProperty("syst") != null){
+        systemProperty "syst", System.getProperty("syst")
+    }
+    else {
+        systemProperty "syst", "DEFAULT111"
+    }
+
+    /* Can pass all the properties:
+    systemProperties System.getProperties() */
+}
+
+task runFeature(type: Test) {
     useTestNG() // specify that we use TestNG instead of JUnit
-    include '**/TestRunner.class'
+    include '**/FeatureTestRunner.class'
+    outputs.upToDateWhen { false }
+}
+
+
+task runScenario(type: Test) {
+    useTestNG() // specify that we use TestNG instead of JUnit
+    include '**/ScenarioTestRunner.class'
     outputs.upToDateWhen { false }
 }

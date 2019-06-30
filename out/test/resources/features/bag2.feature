@@ -11,8 +11,7 @@ Feature: Bag functionalities2
     And process id is
 
     Examples:
-      | name  |
-      | Test1 |
-      | Test2 |
-      | Test3 |
-      | Test4 |
+    | name |
+    | name |
+    | name |
+    

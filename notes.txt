@@ -1,0 +1,12 @@
+1. https://github.com/samueltbrown/gradle-cucumber-plugin - this is some old one and probably only FEATURE PARALLE
+2. https://github.com/prashant-ramcharan/courgette-jvm - this one looks good
+3. https://github.com/alfa-laboratory/cucumber-parallel-test-gradle-plugin - genetates runners - only feature level
+4. https://github.com/commercehub-oss/gradle-cucumber-jvm-plugin - deprecated
+
+
+
+
+https://stackoverflow.com/questions/21358466/gradle-to-execute-java-class-without-modifying-build-gradle
+https://stackoverflow.com/questions/27604283/gradle-task-pass-arguments-to-java-application  (this one was not working: execute --args='arg1 arg2')
+
+https://stackoverflow.com/questions/23689054/problems-passing-system-properties-and-parameters-when-running-java-class-via-gr - this one seems good

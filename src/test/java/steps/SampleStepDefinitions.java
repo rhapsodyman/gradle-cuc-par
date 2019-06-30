@@ -2,6 +2,7 @@ package steps;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import java.lang.management.ManagementFactory;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -39,4 +40,12 @@ public class SampleStepDefinitions {
 	public void aNewStepIs() throws Throwable {
 		System.out.println("new one");
 	}
+
+
+	@And("^process id is$")
+	public void processIdIs() throws Throwable {
+		System.out.println("Process id is = " + ManagementFactory.getRuntimeMXBean().getName());
+	}
+
+
 }
